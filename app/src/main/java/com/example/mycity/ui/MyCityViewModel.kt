@@ -1,5 +1,5 @@
 package com.example.mycity.ui
-import com.example.mycity.data.Category
+import com.example.mycity.model.Category
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,11 +12,17 @@ class MyCityViewModel : ViewModel() {
     private var nextId = 0
 
     fun addCategory(name: String) {
-        val newCategory = Category(id = nextId++, name = name)
         _uiState.update { currentState ->
-            currentState.copy(
-                categories = currentState.categories + newCategory
-            )
+            if (currentState.categories.any { it.name == name }) {
+                currentState
+            } else {
+                val newCategory = Category(id = nextId++, name = name)
+                currentState.copy(
+                    categories = currentState.categories + newCategory
+                )
+            }
+
+
         }
     }
 
