@@ -1,4 +1,4 @@
-package com.example.mycity.data
+package com.example.mycity.model
 
 data class Category (
     val id: Int,
