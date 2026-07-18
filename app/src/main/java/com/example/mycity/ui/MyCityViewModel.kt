@@ -1,6 +1,6 @@
 package com.example.mycity.ui
-import com.example.mycity.model.Category
 import androidx.lifecycle.ViewModel
+import com.example.mycity.model.Category
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,9 +11,19 @@ class MyCityViewModel : ViewModel() {
     val uiState: StateFlow<MyCityUiState> = _uiState.asStateFlow()
     private var nextId = 0
 
+    // seed some data for development
+    init {
+        addCategory("Food")
+        addCategory("Drinks")
+        addCategory("Entertainment")
+    }
+
     fun addCategory(name: String) {
         _uiState.update { currentState ->
-            if (currentState.categories.any { it.name == name }) {
+            if (
+                currentState.categories.any { it.name == name } ||
+                name == ""
+                ) {
                 currentState
             } else {
                 val newCategory = Category(id = nextId++, name = name)
