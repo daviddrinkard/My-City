@@ -1,6 +1,6 @@
-package com.example.mycity.model
+package com.example.mycity.ui
 import androidx.lifecycle.ViewModel
-import com.example.mycity.data.Category
+import com.example.mycity.model.Category
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
