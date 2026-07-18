@@ -42,8 +42,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.mycity.model.Category
-import com.example.mycity.ui.MyCityViewModel
+import com.example.mycity.data.Category
+import com.example.mycity.model.MyCityViewModel
 import com.example.mycity.ui.theme.MyCityTheme
 
 class MainActivity : ComponentActivity() {
