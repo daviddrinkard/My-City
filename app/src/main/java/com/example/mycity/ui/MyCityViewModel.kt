@@ -6,17 +6,21 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
+// Joshua David Drinkard
+// drinkarj@oregonstate.edu
+// CS 492
+
 class MyCityViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(MyCityUiState())
     val uiState: StateFlow<MyCityUiState> = _uiState.asStateFlow()
     private var nextId = 0
 
-    // seed some data for development
-    init {
-        addCategory("Food")
-        addCategory("Drinks")
-        addCategory("Entertainment")
-    }
+// seed some data for development
+//    init {
+//        addCategory("Food")
+//        addCategory("Drinks")
+//        addCategory("Entertainment")
+//    }
 
     fun addCategory(name: String) {
         _uiState.update { currentState ->
