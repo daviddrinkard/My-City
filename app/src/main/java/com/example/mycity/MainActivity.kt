@@ -11,6 +11,11 @@ import androidx.compose.ui.Modifier
 import com.example.mycity.ui.MyCityApp
 import com.example.mycity.ui.theme.MyCityTheme
 
+// Joshua David Drinkard
+// drinkarj@oregonstate.edu
+// CS 492
+
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

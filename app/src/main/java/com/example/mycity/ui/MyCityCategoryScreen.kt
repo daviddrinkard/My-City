@@ -39,6 +39,10 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mycity.model.Category
 
+// Joshua David Drinkard
+// drinkarj@oregonstate.edu
+// CS 492
+
 @Composable
 fun MyCityApp(
     modifier: Modifier = Modifier,
