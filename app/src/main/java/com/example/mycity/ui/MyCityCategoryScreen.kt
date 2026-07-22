@@ -44,9 +44,10 @@ import com.example.mycity.model.Category
 // CS 492
 
 @Composable
-fun MyCityApp(
+fun MyCityCategoryScreen(
     modifier: Modifier = Modifier,
-    viewModel: MyCityViewModel = viewModel()
+    viewModel: MyCityViewModel = viewModel(),
+    onCategoryClick: (Category) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val layoutDirection = LocalLayoutDirection.current
@@ -83,7 +84,8 @@ fun MyCityApp(
             MyCityCategoryList(
                 categoryList = uiState.categories,
                 onDeleteCategory = { category -> viewModel.deleteCategory(category) },
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
+                onCategoryClick = onCategoryClick
             )
 
             // Footer
@@ -120,7 +122,8 @@ fun MyCityApp(
 fun MyCityCategoryList(
     modifier: Modifier = Modifier,
     categoryList: List<Category>,
-    onDeleteCategory: (Category) -> Unit
+    onDeleteCategory: (Category) -> Unit,
+    onCategoryClick: (Category) -> Unit
 ) {
     LazyColumn(
         modifier = modifier
@@ -129,7 +132,8 @@ fun MyCityCategoryList(
         items(categoryList) { category ->
             CategoryCard(
                 category = category,
-                onDeleteCategory = onDeleteCategory
+                onDeleteCategory = onDeleteCategory,
+                onCategoryClick = onCategoryClick
             )
         }
 
@@ -140,9 +144,11 @@ fun MyCityCategoryList(
 fun CategoryCard(
     modifier: Modifier = Modifier,
     category: Category,
-    onDeleteCategory: (Category) -> Unit
+    onDeleteCategory: (Category) -> Unit,
+    onCategoryClick: (Category) -> Unit
 ) {
     Card(
+        onClick = { onCategoryClick(category) },
         modifier = modifier
             .fillMaxWidth()
             .padding(bottom = 12.dp)

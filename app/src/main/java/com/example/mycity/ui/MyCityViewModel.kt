@@ -17,12 +17,12 @@ class MyCityViewModel : ViewModel() {
     private var nextId = 0
     private var nextRecoId = 0
 
-// seed some data for development
-//    init {
-//        addCategory("Food")
-//        addCategory("Drinks")
-//        addCategory("Entertainment")
-//    }
+    // seed some data for development
+    init {
+        addCategory("Food")
+        addCategory("Drinks")
+        addCategory("Entertainment")
+    }
 
     fun addCategory(name: String) {
         _uiState.update { currentState ->
@@ -95,10 +95,15 @@ class MyCityViewModel : ViewModel() {
         }
     }
 
+    fun selectCategory(category: Category) {
+        _uiState.update { it.copy(selectedCategory = category) }
+    }
+
 }
 
 
 data class MyCityUiState(
     val categories: List<Category> = emptyList(),
-    val recommendations: List<Recommendation> = emptyList()
+    val recommendations: List<Recommendation> = emptyList(),
+    val selectedCategory: Category? = null
 )
