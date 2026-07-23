@@ -22,11 +22,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyCityTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MyCityApp(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                    MyCityApp()
             }
         }
     }
